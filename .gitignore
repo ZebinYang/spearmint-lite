@@ -2,5 +2,6 @@ build/*
 dist/*
 pySeqUD.egg-info/*
 temp/*
-pynb_checkpoints/*
 spearmint/__pychche__/*
+.ipynb_checkpoints/*
+spearmint.egg-info

@@ -46,15 +46,17 @@ class GPEISklearn():
                 Specify `Type` as `integer`, and include the keys of `Mapping` (a list with all the sortted integer elements).
             Categorical:
                 Specify `Type` as `categorical`, and include the keys of `Mapping` (a list with all the possible categories).
-        max_runs: int
+        max_runs: int, optional, default = 100
             The maximum number of trials to be evaluated. When this values is reached, 
             then the algorithm will stop. 
-        scoring : string, callable, list/tuple, dict or None, default: None
+        time_out: float, optional, default = 10
+            The time out threshold (in seconds) for generating the next run. 
+        scoring : string, callable, list/tuple, dict or None, optional, default = None
             A sklearn type scoring function. 
             If None, the estimator's default scorer (if available) is used. See the package `sklearn` for details.
-        refit : boolean, or string, default=True
+        refit : boolean, or string, optional, default=True
             It controls whether to refit an estimator using the best found parameters on the whole dataset.
-        verbose : boolean, default = False
+        verbose : boolean, optional, default = False
             It controls whether the searching history will be printed. 
 
 
@@ -112,13 +114,6 @@ class GPEISklearn():
         """
         This function summarizes the evaluation results and makes records. 
         
-        Parameters
-        ----------
-        para_set_ud: A pandas dataframe where each row represents a UD trial point, 
-                and columns are used to represent variables. 
-        para_set: A pandas dataframe which contains the trial points in original form. 
-        score: A numpy vector, which contains the evaluated scores of trial points in para_set.
-        
         """
 
         self.best_index_ = self.logs.loc[:,"score"].idxmax()
@@ -143,6 +138,11 @@ class GPEISklearn():
             print("Best parameters: %s"%self.para_print)
 
     def _para_mapping(self):
+        """
+        This function configures different hyperparameter types of spearmint. 
+        
+        """
+
         self.variables = {}
         for items, values in self.para_space.items():
             if (values['Type']=="continuous"):
@@ -165,6 +165,11 @@ class GPEISklearn():
 
     @set_timeout  
     def spmint_opt(self, params, values, variables, file_dir):
+        """
+        Interface for generating next run based on spearmint. 
+        
+        """
+
         chooser = module.init(file_dir, "mcmc_iters=10")
         vkeys = [k for k in variables]
 
@@ -200,7 +205,10 @@ class GPEISklearn():
         return candidate, next_params_dict
     
     def spearmint_run(self, obj_func_):
+        """
+        Main loop for searching the best hyperparameters. 
         
+        """
         params = []
         scores = []
         param_unit = []

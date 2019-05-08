@@ -10,7 +10,7 @@ To make it easy for use, we clone the source codes of spearmint-lite here and ad
 Installation 
 ---------
 ```sheel
-pip install http://github.com/ZebinYang/spearmint-sklearn.git
+pip install git+http://github.com/ZebinYang/spearmint-sklearn.git
 ```
 
 Example

@@ -7,6 +7,4 @@ setup(name='spearmint',
       url="https://github.com/JasperSnoek/spearmint",
       version='1.0',
       license='GPLv3',
-      packages=['spearmint'],
-      py_modules=['chooser']
-     )
+      packages=['spearmint','spearmint.chooser'])

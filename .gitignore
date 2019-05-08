@@ -5,3 +5,4 @@ temp/*
 spearmint/__pychche__/*
 .ipynb_checkpoints/*
 spearmint.egg-info
+spearmint/*.pyc

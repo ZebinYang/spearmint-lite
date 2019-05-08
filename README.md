@@ -3,7 +3,19 @@ Spearmint-Sklearn
 
 Spearmint-Sklearn provides a sklearn interface to the well-known Spearmint package (https://github.com/JasperSnoek/spearmint).
 
-To make it easy for use, we clone the source codes of spearmint-lite here and add a new wrapper function in "spearmint/search.py". For example, it can be used in the following way: 
+Introduction 
+---------
+To make it easy for use, we clone the source codes of spearmint-lite here and add a new wrapper function in "spearmint/search.py". 
+
+Installation 
+---------
+```sheel
+pip install http://github.com/ZebinYang/spearmint-sklearn.git
+```
+
+Example
+---------
+It can be used in the following way: 
 
 ```python
 from sklearn import svm

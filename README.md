@@ -1,9 +1,10 @@
 Spearmint-Sklearn
 ---------
 
-In Spearmint-Sklearn, we provide a sklearn wrapper to the well-known Spearmint package, which can be found in https://github.com/JasperSnoek/spearmint. 
+Spearmint-Sklearn provides a sklearn interface to the well-known Spearmint package (https://github.com/JasperSnoek/spearmint).
 
-For example, it can be used as follows: 
+To make it easy for use, we clone the source codes of spearmint-lite here and add a new wrapper function in "spearmint/search.py". For example, it can be used in the following way: 
+
 ```python
 from sklearn import svm
 from spearmint.search import GPEISklearn

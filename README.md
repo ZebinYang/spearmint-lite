@@ -1,8 +1,7 @@
 Spearmint-Sklearn
 ---------
 
-Spearmint-Sklearn is based on the well-known Spearmint package, which can be found in https://github.com/JasperSnoek/spearmint.
-Here, we just provide a sklearn wrapper to make it easy to use. 
+In Spearmint-Sklearn, we provide a sklearn wrapper to the well-known Spearmint package, which can be found in https://github.com/JasperSnoek/spearmint. 
 
 For example, it can be used as follows: 
 ```python
